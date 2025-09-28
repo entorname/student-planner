@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Icons</title>
+</head>
+<body>
+    <canvas id="canvas192" width="192" height="192" style="border: 1px solid #ccc;"></canvas>
+    <canvas id="canvas512" width="512" height="512" style="border: 1px solid #ccc;"></canvas>
+    
+    <script>
+        // Create 192x192 icon
+        const canvas192 = document.getElementById('canvas192');
+        const ctx192 = canvas192.getContext('2d');
+        
+        // Background
+        ctx192.fillStyle = '#1e3a2e';
+        ctx192.fillRect(0, 0, 192, 192);
+        
+        // Add a simple planner icon
+        ctx192.fillStyle = '#4a9d5c';
+        ctx192.font = 'bold 80px Arial';
+        ctx192.textAlign = 'center';
+        ctx192.fillText('📚', 96, 120);
+        
+        // Create 512x512 icon
+        const canvas512 = document.getElementById('canvas512');
+        const ctx512 = canvas512.getContext('2d');
+        
+        // Background
+        ctx512.fillStyle = '#1e3a2e';
+        ctx512.fillRect(0, 0, 512, 512);
+        
+        // Add a simple planner icon
+        ctx512.fillStyle = '#4a9d5c';
+        ctx512.font = 'bold 200px Arial';
+        ctx512.textAlign = 'center';
+        ctx512.fillText('📚', 256, 320);
+        
+        // Instructions
+        document.body.innerHTML += '<p>Right-click on each canvas and "Save image as" to save as icon-192.png and icon-512.png</p>';
+    </script>
+</body>
+</html>
