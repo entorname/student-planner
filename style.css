@@ -5,12 +5,14 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: linear-gradient(135deg, #1a1a1a 0%, #1e3a2e 100%);
     min-height: 100vh;
     color: #e8e8e8;
     background-attachment: fixed;
     background-size: cover;
+    font-weight: 400;
+    line-height: 1.6;
 }
 
 html {
@@ -37,16 +39,19 @@ header {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: #4a9d5c;
     margin-bottom: 10px;
-    font-weight: 700;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    font-family: 'Inter', sans-serif;
 }
 
 .date-display {
     font-size: 1.1rem;
     color: #d0d0d0;
-    font-weight: 500;
+    font-weight: 400;
+    letter-spacing: 0.01em;
 }
 
 .planner-section {
@@ -78,7 +83,9 @@ h1 {
     transition: all 0.3s ease;
     background: #1a1a1a;
     color: #f0f0f0;
-    font-weight: 500;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.01em;
 }
 
 #task-input:focus {
@@ -96,7 +103,9 @@ h1 {
     outline: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-weight: 500;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.01em;
 }
 
 #category-select:focus {
@@ -110,9 +119,11 @@ h1 {
     border: none;
     border-radius: 10px;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.01em;
 }
 
 #add-btn:hover {
@@ -140,13 +151,15 @@ h1 {
 }
 
 .category h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-bottom: 20px;
     color: #4a9d5c;
-    font-weight: 700;
+    font-weight: 500;
     text-align: center;
     padding-bottom: 15px;
     border-bottom: 2px solid #4a9d5c;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.01em;
 }
 
 .task-list {
@@ -177,7 +190,9 @@ h1 {
     flex: 1;
     font-size: 1rem;
     color: #f0f0f0;
-    font-weight: 500;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.01em;
 }
 
 .delete-btn {
@@ -218,301 +233,6 @@ h1 {
     }
 }
 
-/* Tab Navigation */
-.tab-navigation {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    justify-content: center;
-}
-
-.tab-btn {
-    padding: 12px 24px;
-    background: #1a1a1a;
-    color: #f0f0f0;
-    border: 2px solid #1e3a2e;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.tab-btn:hover {
-    border-color: #2d5a4a;
-    background: #2a2a2a;
-}
-
-.tab-btn.active {
-    background: linear-gradient(135deg, #1e3a2e 0%, #2d5a4a 100%);
-    border-color: #4a9d5c;
-    color: white;
-}
-
-.tab-content {
-    display: none;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-/* Dictionary Styles */
-.dictionary-section {
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    border: 2px solid #1e3a2e;
-}
-
-.dictionary-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.dictionary-header h2 {
-    color: #4a9d5c;
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.search-container {
-    display: flex;
-    gap: 15px;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-#hanzi-search {
-    flex: 1;
-    padding: 15px 20px;
-    border: 2px solid #1e3a2e;
-    border-radius: 10px;
-    font-size: 1rem;
-    background: #1a1a1a;
-    color: #f0f0f0;
-    font-weight: 500;
-}
-
-#hanzi-search:focus {
-    border-color: #2d5a4a;
-    box-shadow: 0 0 0 3px rgba(30, 58, 46, 0.3);
-    outline: none;
-}
-
-#search-btn {
-    padding: 15px 25px;
-    background: linear-gradient(135deg, #1e3a2e 0%, #2d5a4a 100%);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-#search-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(30, 58, 46, 0.4);
-}
-
-.dictionary-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-}
-
-.word-display {
-    background: #1a1a1a;
-    border-radius: 15px;
-    padding: 25px;
-    border: 2px solid #1e3a2e;
-    text-align: center;
-}
-
-.hanzi-display {
-    margin-bottom: 20px;
-}
-
-#current-hanzi {
-    font-size: 4rem;
-    color: #4a9d5c;
-    font-weight: 700;
-    display: block;
-    margin-bottom: 15px;
-}
-
-.pinyin-display {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-#current-pinyin {
-    font-size: 1.5rem;
-    color: #f0f0f0;
-    font-weight: 600;
-}
-
-#pronounce-btn {
-    background: #2d5a4a;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-}
-
-#pronounce-btn:hover {
-    background: #4a9d5c;
-    transform: scale(1.1);
-}
-
-#current-meaning {
-    font-size: 1.2rem;
-    color: #d0d0d0;
-    font-weight: 500;
-}
-
-.writing-practice {
-    background: #1a1a1a;
-    border-radius: 15px;
-    padding: 25px;
-    border: 2px solid #1e3a2e;
-}
-
-.writing-practice h3 {
-    color: #4a9d5c;
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.canvas-container {
-    text-align: center;
-}
-
-#writing-canvas {
-    border: 2px solid #1e3a2e;
-    border-radius: 10px;
-    background: #0a0a0a;
-    cursor: crosshair;
-    margin-bottom: 15px;
-}
-
-.canvas-controls {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.canvas-controls button {
-    padding: 10px 15px;
-    background: #2d5a4a;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.canvas-controls button:hover {
-    background: #4a9d5c;
-    transform: translateY(-2px);
-}
-
-.stroke-order-display {
-    grid-column: 1 / -1;
-    background: #1a1a1a;
-    border-radius: 15px;
-    padding: 25px;
-    border: 2px solid #1e3a2e;
-    margin-top: 20px;
-}
-
-.stroke-order-display h3 {
-    color: #4a9d5c;
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-#stroke-animation {
-    text-align: center;
-    font-size: 3rem;
-    color: #4a9d5c;
-    min-height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.word-list {
-    grid-column: 1 / -1;
-    background: #1a1a1a;
-    border-radius: 15px;
-    padding: 25px;
-    border: 2px solid #1e3a2e;
-    margin-top: 20px;
-}
-
-.word-list h3 {
-    color: #4a9d5c;
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-#character-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 15px;
-}
-
-.character-item {
-    background: #0a0a0a;
-    border: 2px solid #1e3a2e;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.character-item:hover {
-    border-color: #2d5a4a;
-    background: #1e3a2e;
-    transform: translateY(-2px);
-}
-
-.character-hanzi {
-    font-size: 2rem;
-    color: #4a9d5c;
-    font-weight: 700;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.character-pinyin {
-    font-size: 0.8rem;
-    color: #d0d0d0;
-    font-weight: 500;
-}
 
 @media (max-width: 768px) {
     .container {
@@ -520,7 +240,7 @@ h1 {
     }
     
     h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
     
     .add-task {
@@ -529,18 +249,5 @@ h1 {
     
     .task-categories {
         grid-template-columns: 1fr;
-    }
-    
-    .dictionary-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .search-container {
-        flex-direction: column;
-    }
-    
-    #writing-canvas {
-        width: 100%;
-        max-width: 300px;
     }
 }

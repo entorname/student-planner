@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1e3a2e">
@@ -21,16 +24,8 @@
             </div>
         </header>
 
-        <!-- Navigation Tabs -->
-        <nav class="tab-navigation">
-            <button class="tab-btn active" data-tab="planner">📚 Planner</button>
-            <button class="tab-btn" data-tab="dictionary">🈶 Chinese Dictionary</button>
-        </nav>
-
         <main>
-            <!-- Planner Tab -->
-            <div id="planner-tab" class="tab-content active">
-                <div class="planner-section">
+            <div class="planner-section">
                 <div class="add-task">
                     <input type="text" id="task-input" placeholder="Add a new task...">
                     <select id="category-select">
@@ -55,57 +50,6 @@
                     <div class="category">
                         <h3>📅 Events</h3>
                         <ul id="events-list" class="task-list"></ul>
-                    </div>
-                </div>
-            </div>
-            </div>
-
-            <!-- Chinese Dictionary Tab -->
-            <div id="dictionary-tab" class="tab-content">
-                <div class="dictionary-section">
-                    <div class="dictionary-header">
-                        <h2>🈶 Chinese Hanzi & Pinyin Dictionary</h2>
-                        <div class="search-container">
-                            <input type="text" id="hanzi-search" placeholder="Search Hanzi, Pinyin, or English...">
-                            <button id="search-btn">🔍 Search</button>
-                        </div>
-                    </div>
-
-                    <div class="dictionary-content">
-                        <div class="word-display">
-                            <div class="hanzi-display">
-                                <span id="current-hanzi">学</span>
-                                <div class="pinyin-display">
-                                    <span id="current-pinyin">xué</span>
-                                    <button id="pronounce-btn">🔊</button>
-                                </div>
-                                <div class="meaning-display">
-                                    <span id="current-meaning">to study, to learn</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="writing-practice">
-                            <h3>✍️ Writing Practice</h3>
-                            <div class="canvas-container">
-                                <canvas id="writing-canvas" width="300" height="300"></canvas>
-                                <div class="canvas-controls">
-                                    <button id="clear-canvas">🗑️ Clear</button>
-                                    <button id="show-stroke-order">📝 Show Stroke Order</button>
-                                    <button id="practice-mode">🎯 Practice Mode</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="stroke-order-display">
-                            <h3>📝 Stroke Order</h3>
-                            <div id="stroke-animation"></div>
-                        </div>
-
-                        <div class="word-list">
-                            <h3>📚 Common Characters</h3>
-                            <div id="character-grid"></div>
-                        </div>
                     </div>
                 </div>
             </div>
