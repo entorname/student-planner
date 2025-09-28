@@ -369,15 +369,48 @@ class ChineseDictionary {
     }
 
     generateStrokeOrder() {
-        // Simple stroke order simulation
+        // Create realistic stroke order for the current character
         this.strokeOrder = [];
-        const strokes = Math.floor(Math.random() * 5) + 3; // 3-7 strokes
-        for (let i = 0; i < strokes; i++) {
-            this.strokeOrder.push({
-                x: Math.random() * 200 + 50,
-                y: Math.random() * 200 + 50,
-                width: Math.random() * 50 + 20
-            });
+        const character = this.currentCharacter;
+        
+        // Define stroke patterns for common characters
+        const strokePatterns = {
+            '学': [
+                { type: 'line', x1: 50, y1: 80, x2: 250, y2: 80, delay: 0 },
+                { type: 'line', x1: 50, y1: 80, x2: 50, y2: 220, delay: 500 },
+                { type: 'line', x1: 50, y1: 150, x2: 250, y2: 150, delay: 1000 },
+                { type: 'line', x1: 150, y1: 80, x2: 150, y2: 220, delay: 1500 },
+                { type: 'line', x1: 100, y1: 200, x2: 200, y2: 200, delay: 2000 }
+            ],
+            '好': [
+                { type: 'line', x1: 80, y1: 60, x2: 80, y2: 200, delay: 0 },
+                { type: 'line', x1: 60, y1: 80, x2: 100, y2: 80, delay: 500 },
+                { type: 'line', x1: 60, y1: 120, x2: 100, y2: 120, delay: 1000 },
+                { type: 'line', x1: 80, y1: 140, x2: 80, y2: 180, delay: 1500 },
+                { type: 'line', x1: 120, y1: 60, x2: 120, y2: 200, delay: 2000 },
+                { type: 'line', x1: 100, y1: 80, x2: 140, y2: 80, delay: 2500 }
+            ],
+            '人': [
+                { type: 'line', x1: 100, y1: 60, x2: 150, y2: 200, delay: 0 },
+                { type: 'line', x1: 150, y1: 60, x2: 200, y2: 200, delay: 500 }
+            ],
+            '大': [
+                { type: 'line', x1: 150, y1: 60, x2: 150, y2: 200, delay: 0 },
+                { type: 'line', x1: 100, y1: 100, x2: 200, y2: 100, delay: 500 },
+                { type: 'line', x1: 100, y1: 140, x2: 200, y2: 140, delay: 1000 }
+            ]
+        };
+        
+        if (strokePatterns[character]) {
+            this.strokeOrder = strokePatterns[character];
+        } else {
+            // Default pattern for other characters
+            this.strokeOrder = [
+                { type: 'line', x1: 50, y1: 80, x2: 250, y2: 80, delay: 0 },
+                { type: 'line', x1: 50, y1: 80, x2: 50, y2: 220, delay: 500 },
+                { type: 'line', x1: 50, y1: 150, x2: 250, y2: 150, delay: 1000 },
+                { type: 'line', x1: 150, y1: 80, x2: 150, y2: 220, delay: 1500 }
+            ];
         }
     }
 
@@ -388,15 +421,59 @@ class ChineseDictionary {
     }
 
     animateStroke() {
-        if (this.currentStroke >= this.strokeOrder.length) return;
+        if (this.currentStroke >= this.strokeOrder.length) {
+            this.showNotification('Stroke order complete!', 'success');
+            return;
+        }
 
         const stroke = this.strokeOrder[this.currentStroke];
-        this.ctx.beginPath();
-        this.ctx.arc(stroke.x, stroke.y, stroke.width, 0, Math.PI * 2);
-        this.ctx.stroke();
         
-        this.currentStroke++;
-        setTimeout(() => this.animateStroke(), 500);
+        // Set stroke style
+        this.ctx.strokeStyle = '#4a9d5c';
+        this.ctx.lineWidth = 4;
+        this.ctx.lineCap = 'round';
+        
+        if (stroke.type === 'line') {
+            // Animate line drawing
+            this.animateLine(stroke.x1, stroke.y1, stroke.x2, stroke.y2, () => {
+                this.currentStroke++;
+                setTimeout(() => this.animateStroke(), 200);
+            });
+        } else {
+            // Default circle for other types
+            this.ctx.beginPath();
+            this.ctx.arc(stroke.x, stroke.y, stroke.width, 0, Math.PI * 2);
+            this.ctx.stroke();
+            this.currentStroke++;
+            setTimeout(() => this.animateStroke(), 500);
+        }
+    }
+
+    animateLine(x1, y1, x2, y2, callback) {
+        const steps = 20;
+        const stepX = (x2 - x1) / steps;
+        const stepY = (y2 - y1) / steps;
+        let currentStep = 0;
+
+        const drawStep = () => {
+            if (currentStep >= steps) {
+                callback();
+                return;
+            }
+
+            const currentX = x1 + (stepX * currentStep);
+            const currentY = y1 + (stepY * currentStep);
+
+            this.ctx.beginPath();
+            this.ctx.moveTo(x1, y1);
+            this.ctx.lineTo(currentX, currentY);
+            this.ctx.stroke();
+
+            currentStep++;
+            setTimeout(drawStep, 50);
+        };
+
+        drawStep();
     }
 
     practiceMode() {

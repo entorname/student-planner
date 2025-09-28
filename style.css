@@ -9,6 +9,14 @@ body {
     background: linear-gradient(135deg, #1a1a1a 0%, #1e3a2e 100%);
     min-height: 100vh;
     color: #e8e8e8;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+html {
+    background: linear-gradient(135deg, #1a1a1a 0%, #1e3a2e 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
 .container {
